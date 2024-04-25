@@ -1,6 +1,5 @@
-<div align="center">
 
-![Logo del Proyecto](https://avatars.githubusercontent.com/u/14185940?s=200&v=4.png)
+<h1 align="center">![Logo del Proyecto](https://avatars.githubusercontent.com/u/14185940?s=200&v=4.png)</h1>
 
 <!-- Título principal -->
 <h1 align="center">RAG with LLM API</h1>
@@ -40,7 +39,6 @@
   <li>Clona este repositorio en tu máquina local:</li>
 </ol>
 
-```bash
 git clone https://github.com/tu_usuario/rag-with-llm-api.git
 
 <ol start="2">
