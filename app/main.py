@@ -1,12 +1,15 @@
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
-from app.services import generate_response
+
+from .services import generate_response
 
 app = FastAPI()
+
 
 class Question(BaseModel):
     user_name: str
     question: str
+
 
 @app.post("/ask/")
 def ask_question(question: Question):

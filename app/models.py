@@ -1,7 +1,6 @@
 from pydantic import BaseModel
 
-class Chunk(BaseModel):
-    # MOdelo de datos para solicitar preg
-    id: int
+
+class Question(BaseModel):
     user_name: str
     question: str

@@ -1,35 +1,51 @@
 import os
-from dotenv import load_dotenv
-from typing import List
-from app.utils import get_collection, get_most_similar_chunk
-from cohere import CohereClient
-from langchain import Embeddings
-from models import Chunk
 
-# Cargar variables de entorno desde .env
+from cohere import CohereClient
+from dotenv import load_dotenv
+from langchain import Embeddings
+
+from app.database import get_collection
+
 load_dotenv()
 
+
 def generate_response(user_name: str, question: str) -> str:
+    """
+    respuesta del LLM a la pregunta del usuario.
+
+    Args:
+        user_name (str): Nombre del usuario .
+        question (str): Pregunta del usuario.
+
+    Returns:
+        str: Respuestapor el LLM.
+    """
     try:
-        # Obtener la clave de API de Cohere desde .env
         cohere_api_key = os.getenv("COHERE_API_KEY")
         if not cohere_api_key:
             raise Exception("No se ha proporcionado la clave de API de Cohere")
 
-        embeddings = Embeddings()
-        cohere = CohereClient(api_key=cohere_api_key)  # Inicializar Cohere con la API key
+        cohere = CohereClient(api_key=cohere_api_key)
         collection = get_collection()
-        chunks = collection.get_all_documents()
-
-        question_encoding = embeddings.encode(question)
-        most_similar_chunk = get_most_similar_chunk(chunks, question_encoding)
-
-        # Construcción del prompt para el LLM
-        prompt = f"{user_name} asks: {question}\n\n{most_similar_chunk}"
-
-        # Obtención de la respuesta del LLM
-        response = cohere.complete(prompt, max_tokens=50)["choices"][0]["text"].strip()
-
+        context = collection.query(query_texts=[question], n_results=1)["documents"][0]
+        embeddings = Embeddings()
+        target_encoding = embeddings.encode(question.strip())
+        response = cohere.generate_response(context, target_encoding)
         return response
     except Exception as e:
-        raise Exception("Error en la generación de respuesta")
+        raise Exception(f"Error generando la respuesta: {str(e)}")
+
+
+def store_chunks_in_chromadb(document_content: str) -> None:
+    """
+    Almacena los chunks del documento en ChromaDB.
+
+    Args:
+        document_content (str): Contenido del documento.
+    """
+    try:
+        # chunks, realizar el encoding y almacenar en ChromaDB
+        # ...
+        pass
+    except Exception as e:
+        raise Exception(f"Error al almacenar chunks en ChromaDB: {str(e)}")
