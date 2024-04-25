@@ -1,0 +1,5 @@
+.env
+fastapi-env
+tutorial_chroma.ipynb
+document.docx
+__pycache__
