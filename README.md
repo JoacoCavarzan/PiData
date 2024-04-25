@@ -1,5 +1,5 @@
 
-<div align="center">![Logo del Proyecto](https://avatars.githubusercontent.com/u/14185940?s=200&v=4.png)</div>
+<div align="center"> ![Logo del Proyecto](https://avatars.githubusercontent.com/u/14185940?s=200&v=4.png)
 
 <!-- Título principal -->
 <h1 align="center">RAG with LLM API</h1>
