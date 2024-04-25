@@ -2,7 +2,7 @@
 <div align="center"> ![Logo del Proyecto](https://avatars.githubusercontent.com/u/14185940?s=200&v=4.png)
 
 <!-- Título principal -->
-<h1 align="center">RAG with LLM API</h1>
+  RAG with LLM API </div>
 
 <!-- Descripción del proyecto -->
 <p align="center">Este proyecto implementa una solución simple de tipo RAG (retrieved augmented generation) utilizando un LLM (large language model) a través de una API desarrollada con FastAPI en Python. La API permite a los usuarios hacer preguntas sobre un documento específico y recibir respuestas generadas por el LLM.</p>
