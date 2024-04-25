@@ -41,14 +41,14 @@
   <li>Clona este repositorio en tu máquina local:</li>
 </ol>
 
-git clone https://github.com/tu_usuario/rag-with-llm-api.git
+git clone https://github.com/JoacoCavarzan/PiData
 
 <ol start="2">
   <li>Accede al directorio del proyecto:</li>
 </ol>
 bash
  
-cd rag-with-llm-api
+cd PiData
 <ol start="3">
   <li>Crea un entorno virtual e instala las dependencias:</li>
 </ol>
